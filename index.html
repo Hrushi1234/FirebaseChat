@@ -46,7 +46,7 @@
   var ref = database.ref('messages');
   var messageList = [];
 
-  ref.orderByChild('message').on('child_added', (snap) => {
+  ref.orderByKey().on('child_added', (snap) => {
     messageList.push(snap.child('message').val());
     document.getElementById('message').innerHTML = "";
     messageList.forEach((message)  => {
