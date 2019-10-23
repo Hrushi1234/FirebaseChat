@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="api.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: key,
+      authDomain: "crud-4f54c.firebaseapp.com",
+      databaseURL: "https://crud-4f54c.firebaseio.com",
+      projectId: "crud-4f54c",
+      storageBucket: "crud-4f54c.appspot.com",
+      messagingSenderId: "417728642280",
+      appId: "1:417728642280:web:240026edeb12116e"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+<link rel="stylesheet" href="styles.css">
+
+<body class="container">
+  <div class="main">
+
+    <div id="message" class="message-div "></div>
+    <br>
+
+    <div class="input-div">
+      <div class="row input-box valign-wrapper card-panel white z-depth-4 lighten-2">
+        <div class="input-field col s10">
+          <input type="text" name="name" id="name" class="text-white">
+          <label for="last_name">Enter Message</label>
+        </div>
+        <button type="submit" name="button" onclick="submitData()"
+          class="col s2  btn waves-effect waves-light">Send</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script type="text/javascript">
+    var database = firebase.database();
+    var ref = database.ref('messages');
+    var messageList = [];
+    ref.orderByKey().on('child_added', (snap) => {
+      messageList.push(snap.child('message').val());
+      document.getElementById('message').innerHTML = "";
+      messageList.forEach((message) => {
+        document.getElementById('message').innerHTML += '<p class="messages">' + message + '</p>' +
+          '<div class="divider"></div>';
+      });
+    });
+
+    function submitData() {
+      name = document.getElementById("name").value;
+      console.log(name);
+      if (name == '') {
+        console.log('====================================');
+        console.log('HI');
+        console.log('====================================');
+      } else {
+        var data = {
+          message: name
+        }
+        ref.push().set(data).then(function () {
+          document.getElementById('name').value = "";
+        });
+      }
+
+    }
+  </script>
+</body>
+
+</html>
