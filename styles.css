@@ -40,14 +40,6 @@ body{
     position: relative;
 }
 
-<<<<<<< HEAD
-.h1{
-=======
-.latest{
->>>>>>> master
-  font-size: 25px;
-  margin: 0;
-}
 
 ::-webkit-scrollbar {
   width: 10px;
