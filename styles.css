@@ -6,7 +6,9 @@ body{
 .main {
     width: 100%;
     position: relative;
-    height: 100vh;
+    height: 75vh;
+    overflow: scroll;
+    overflow-x: hidden;
     /* background: red; */
 }
 
@@ -36,4 +38,30 @@ body{
 
 .btn{
     position: relative;
+}
+
+.h1{
+  font-size: 25px;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+
+  /* background: #f1f1f1; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: teal;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
