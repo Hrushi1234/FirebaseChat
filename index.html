@@ -75,9 +75,8 @@
         var data = {
           message: name
         }
-        ref.push().set(data).then(function () {
-          document.getElementById('name').value = "";
-        });
+        document.getElementById('name').value = "";
+        ref.push().set(data);
       }
 
     }
