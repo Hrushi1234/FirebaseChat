@@ -54,7 +54,7 @@
       messageList.push(snap.child('message').val());
       document.getElementById('message').innerHTML = "";
       messageList.forEach((message) => {
-        document.getElementById('message').innerHTML += '<p class="messages" onclick='copyToClipboard()' + message + '</p>' +
+        document.getElementById('message').innerHTML += '<p class="messages" onclick="copyToClipboard()" + message + '</p>' +
           '<div class="divider"></div>';
       });
     });
