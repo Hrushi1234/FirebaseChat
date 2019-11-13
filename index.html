@@ -64,7 +64,7 @@
     }
     });
           
-      document.getElementsByClass('messages').addEventListener('click', function(e) {
+      document.getElementById('message').addEventListener('click', function(e) {
           e = e || window.event;
           var target = e.target || e.srcElement,
               text = target.textContent || target.innerText;   
