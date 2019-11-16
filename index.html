@@ -72,16 +72,16 @@
       submitData();
     }
     });
-          
+
       document.getElementById('message').addEventListener('click', function(e) {
           e = e || window.event;
           var target = e.target || e.srcElement,
-              text = target.textContent || target.innerText;   
+              text = target.textContent || target.innerText;
         copyToClipboard(text);
       }, false);
-      
-      
-    
+
+
+
     function copyToClipboard(text){
        var elem = document.createElement("textarea");
       document.body.appendChild(elem);
