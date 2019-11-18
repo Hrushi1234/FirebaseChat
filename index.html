@@ -52,7 +52,6 @@
       </div>
     </div>
 
-
   </div>
 
 
@@ -64,8 +63,8 @@
       messageList.push(snap.child('message').val());
       document.getElementById('message').innerHTML = "";
       messageList.forEach((message) => {
-        document.getElementById('message').innerHTML += '<p class="messages" >' + message + '</p>' +
-          '<div class="divider"></div>';
+        document.getElementById('message').innerHTML += '<p class="messages" onclick = "copyText()" >' + message + '</p>'
+        +  '<div class="divider"></div>';
       });
     });
     document.querySelector('#name').addEventListener('keypress', function (e) {
@@ -74,14 +73,15 @@
     }
     });
 
-      document.getElementById('message').addEventListener('click', function(e) {
-          e = e || window.event;
-          var target = e.target || e.srcElement,
-              text = target.textContent || target.innerText;
+
+      function copyText(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement,
+        text = target.textContent || target.innerText;
+        console.log(text);
         copyToClipboard(text);
-      }, false);
 
-
+      }
 
     function copyToClipboard(text){
        var elem = document.createElement("textarea");
@@ -109,6 +109,8 @@
 
     }
   </script>
+  <script src="index.js" charset="utf-8"></script>
+
 </body>
 
 </html>
